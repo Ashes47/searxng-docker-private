@@ -9,6 +9,11 @@
 
   tls {$SEARXNG_TLS}
 
+  # Uncomment to create a private Instance
+  # basic_auth / {
+  #   user password
+  # }
+
   @api {
         path /config
         path /healthz

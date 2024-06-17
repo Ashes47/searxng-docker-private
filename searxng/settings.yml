@@ -3,9 +3,22 @@ use_default_settings: true
 server:
   # base_url is defined in the SEARXNG_BASE_URL environment variable, see .env and docker-compose.yml
   secret_key: "ultrasecretkey"  # change this!
-  limiter: true  # can be disabled for a private instance
+  limiter: false  # can be disabled for a private instance
   image_proxy: true
+  method: "GET"
 ui:
   static_use_hash: true
 redis:
   url: redis://redis:6379/0
+search:
+  safe_search: 0
+  autocomplete: "google"
+  formats:
+    - "html"
+    - "json"
+    - "searx"  # Enable Searx API format
+general:
+  debug: false
+  instance_name: "My Search"
+  contact_url: false
+  enable_metrics: true

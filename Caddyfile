@@ -9,6 +9,11 @@
 
   tls {$SEARXNG_TLS}
 
+  # Uncomment this to have private a instance
+  # basic_auth / {
+  #   user password # Update this to create a account
+  # }
+
   @api {
         path /config
         path /healthz
@@ -89,7 +94,7 @@
   handle {
         encode zstd gzip
 
-        reverse_proxy localhost:8080 {
+        reverse_proxy searxng:8080 {
                header_up X-Forwarded-Port {http.request.port}
                header_up X-Forwarded-Proto {http.request.scheme}
                header_up X-Real-IP {remote_host}

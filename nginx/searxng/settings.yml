@@ -1,0 +1,31 @@
+OA# see https://docs.searxng.org/admin/settings/settings.html#settings-use-default-settings
+use_default_settings: true
+
+server:
+  # base_url is defined in the SEARXNG_BASE_URL environment variable, see .env and docker-compose.yml
+  secret_key: "supersecretkey"  # change this!
+  limiter: false  # can be disabled for a private instance
+  image_proxy: true
+  method: "GET"
+  # bind_address: "0.0.0.0"  # Allow access from all network interfaces
+  # port: 8888  # Ensure this port is open and not used by another service
+
+ui:
+  static_use_hash: true
+
+redis:
+  url: redis://redis:6379/0
+
+search:
+  safe_search: 0
+  autocomplete: "google"
+  formats:
+    - "html"
+    - "json"
+    - "searx"  # Enable Searx API format
+
+general:
+  debug: false
+  instance_name: "Search"
+  contact_url: false
+  enable_metrics: true
